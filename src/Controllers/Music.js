@@ -1,6 +1,7 @@
 const { music, artist } = require('../../models/index')
 const Joi = require('joi')
 const {Op} = require('sequelize')
+const cloudinary = require('../utils/cloudinary')
 
 exports.getMusics = async (req, res) => {
   try {
@@ -103,17 +104,36 @@ exports.addMusic = async (req, res) => {
           })
       }
       try {
+        
+        // console.log("Files ======",req.files)
+        // return res.status(200).send({
+        //     message: "success"
+        // })
+
+        const image = await cloudinary.uploader.upload(req.files[0].path,{
+            folder: 'dumbsound',
+            use_filename: true,
+            unique_filename: false
+        })
+
+        const musicFile = await cloudinary.uploader.upload(req.files[1].path,{
+            folder: 'dumbsound',
+            use_filename: true,
+            unique_filename: false,
+            resource_type: 'raw'
+        })
+
+
         const newMusic = await music.create({
             artistId,
             title,
             year,
-            thumbnail: req.files[0].filename,
-            attache: req.files[1].filename,
+            thumbnail: image.public_id,
+            attache: musicFile.public_id
         })
   
         res.status(201).send({
-            status: "success",
-            data: newMusic
+            status: "success"
         })
   
     } catch (error) {
