@@ -123,7 +123,6 @@ exports.addMusic = async (req, res) => {
             resource_type: 'raw'
         })
 
-
         const newMusic = await music.create({
             artistId,
             title,
