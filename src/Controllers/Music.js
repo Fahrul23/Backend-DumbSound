@@ -31,7 +31,7 @@ exports.getMusics = async (req, res) => {
             result.push(data)
         })
         
-        res.status(200).send({
+        return res.status(200).send({
             message: "success",
             data: result
         })
