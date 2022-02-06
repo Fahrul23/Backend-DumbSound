@@ -16,7 +16,7 @@ module.exports = {
         "users",
         [
             {
-                email: "dumbways@mail.com",
+                email: "dumbsound@gmail.com",
                 fullName: "Fahrul ihsan",
                 phone: "089878767654",
                 gender: "male",
@@ -24,7 +24,7 @@ module.exports = {
                 role: "admin",
                 subscribe: true,
                 password:
-                "$2b$10$7KXa8ANtY3dRTEM3TtOEQeTAFgGhmgnfXxYS8O/TgpD95z96wWL9q", //123456
+                "$2b$10$EscsU0Eak08Km.Um2f6oreyoZO2QkvsXeyi06GHoVd3h97mfTYNmy", //dumbsound123
             },
         ],
         {}
