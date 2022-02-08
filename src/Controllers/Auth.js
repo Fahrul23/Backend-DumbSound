@@ -52,6 +52,7 @@ exports.Login = async (req, res) => {
         res.status(200).send({
             message: "success",
             data : {
+                id: userExist.id,
                 fullName: userExist.fullName,
                 email: userExist.email,
                 role: userExist.role,
@@ -154,9 +155,9 @@ exports.Register = async (req, res) => {
 }
 exports.checkAuth = async (req, res) => {
     try {
-  
+        
         const dataUser = await user.findOne({
-            where: { id },
+            where: { id : req.user.id },
             attributes: {
                 exclude: ["createdAt", "updatedAt", "password"],
             },
