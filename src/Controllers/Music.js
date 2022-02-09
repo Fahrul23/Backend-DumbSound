@@ -283,7 +283,7 @@ exports.searchMusic = async (req, res) => {
             result.map(element => {
                 let data = {
                     title: element.title,
-                    name: element.Artist.name,
+                    name: element.artist.name,
                     attache: element.attache,
                     thumbnail: element.thumbnail,
                     year: element.year
